@@ -2,21 +2,22 @@
 
 TaskSphere is a MERN-based todo application for managing tasks with a clean two-panel interface, API-driven CRUD operations, and local test coverage.
 
-1. Overview
+**Overview**
 
 The application includes task creation, editing, completion toggles, deletion, filtering, search, and sorting. The frontend is built with React and Vite, while the backend exposes a REST API backed by MongoDB and Mongoose.
 
-2. Key Features
+**Key Features**
 
-• Create tasks with title, description, and due date
-• Edit and update existing tasks
-• Mark tasks complete or incomplete
-• Filter tasks by all, active, and completed states
-• Search and sort the task list
-• View task statistics in a dedicated summary panel
-• Run the full stack locally or through Docker Compose
+| Capability | Description |
+| --- | --- |
+| Create tasks | Add a title, description, and due date |
+| Edit tasks | Update an existing task in place |
+| Completion control | Mark tasks complete or incomplete |
+| Task discovery | Filter, search, and sort the list |
+| Task insights | View totals, completion, and status summary |
+| Deployment | Run locally or with Docker Compose |
 
-3. Tech Stack
+**Tech Stack**
 
 | Layer | Tools |
 | --- | --- |
@@ -26,7 +27,7 @@ The application includes task creation, editing, completion toggles, deletion, f
 | Testing | Jest, React Testing Library |
 | Containerization | Docker, Docker Compose |
 
-4. Project Structure
+**Project Structure**
 
 ```text
 backend-project/
@@ -50,25 +51,23 @@ backend-project/
 └── README.md
 ```
 
-5. Prerequisites
+**Prerequisites**
 
-• Node.js 18+
-• pnpm
-• MongoDB running locally, or Docker Desktop for containerized setup
+| Requirement | Details |
+| --- | --- |
+| Runtime | Node.js 18 or newer |
+| Package manager | pnpm |
+| Database | MongoDB locally, or Docker Desktop for containers |
 
-6. Run With Docker Compose
+**Run With Docker Compose**
 
-1. Open a terminal in the project root.
-2. Start the full stack:
+Open a terminal in the project root and start the full stack with the command below.
 
 ```bash
 docker compose up --build
 ```
 
-3. Open the application:
-
-• Frontend: `http://localhost:3000`
-• Backend: `http://localhost:5000`
+Once the containers are running, the frontend is available at `http://localhost:3000` and the backend is available at `http://localhost:5000`.
 
 To stop and remove the containers:
 
@@ -76,9 +75,9 @@ To stop and remove the containers:
 docker compose down -v
 ```
 
-7. Run Locally
+**Run Locally**
 
-7.1 Backend
+**Backend**
 
 ```bash
 cd backend
@@ -94,7 +93,7 @@ MONGODB_URI=mongodb://127.0.0.1:27017/todoapp
 NODE_ENV=development
 ```
 
-7.2 Frontend
+**Frontend**
 
 ```bash
 cd frontend
@@ -104,7 +103,7 @@ pnpm run dev
 
 The Vite server usually runs at `http://localhost:5173`.
 
-8. Tests
+**Tests**
 
 Run the frontend test suite from the frontend folder:
 
@@ -112,18 +111,10 @@ Run the frontend test suite from the frontend folder:
 pnpm test
 ```
 
-9. API Testing
+**API Testing**
 
-Import `POSTMAN_COLLECTION.json` into Postman to test the REST endpoints:
+Import `POSTMAN_COLLECTION.json` into Postman to test the REST endpoints. The collection includes GET `/api/todos`, GET `/api/todos?status=pending`, GET `/api/todos?status=completed`, POST `/api/todos`, PUT `/api/todos/:id`, and DELETE `/api/todos/:id`.
 
-• GET `/api/todos`
-• GET `/api/todos?status=pending`
-• GET `/api/todos?status=completed`
-• POST `/api/todos`
-• PUT `/api/todos/:id`
-• DELETE `/api/todos/:id`
+**Notes**
 
-10. Notes
-
-• The frontend expects the API at `/api/todos`.
-• The app is designed to run as a single workflow, with Docker Compose recommended for the fastest setup.
+The frontend expects the API at `/api/todos`. The app is designed to run as a single workflow, with Docker Compose recommended for the fastest setup.
