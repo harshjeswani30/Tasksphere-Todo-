@@ -1,0 +1,184 @@
+{
+  "info": {
+    "_postman_id": "a90dfb2b-09ef-4bb8-a28a-8cfa3b4d241d",
+    "name": "MERN Todo App API",
+    "description": "Collection of requests to test the MERN Todo Application CRUD REST endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET All Todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/todos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "todos"
+          ]
+        },
+        "description": "Retrieves all todo tasks sorted by creation date (newest first)."
+      },
+      "response": []
+    },
+    {
+      "name": "GET Filtered Todos (Pending)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/todos?status=pending",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "todos"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "pending",
+              "description": "Filter by pending (incomplete) status"
+            }
+          ]
+        },
+        "description": "Retrieves only pending (incomplete) tasks."
+      },
+      "response": []
+    },
+    {
+      "name": "GET Filtered Todos (Completed)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/todos?status=completed",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "todos"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "completed",
+              "description": "Filter by completed status"
+            }
+          ]
+        },
+        "description": "Retrieves only completed tasks."
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Todo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement Redux State\",\n  \"description\": \"Migrate local state to Redux for global coordination\",\n  \"dueDate\": \"2026-06-15T00:00:00.000Z\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/todos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "todos"
+          ]
+        },
+        "description": "Creates a new Todo item. The Title field is required and validated. Due date is optional."
+      },
+      "response": []
+    },
+    {
+      "name": "PUT Update Todo",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement Redux State (Updated)\",\n  \"description\": \"Updated description with deadline adjustments\",\n  \"completed\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/todos/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "todos",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_TODO_ID",
+              "description": "The unique hex ID of the Todo document to update."
+            }
+          ]
+        },
+        "description": "Updates full or partial fields of an existing Todo document by ID."
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Todo",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/todos/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "todos",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_TODO_ID",
+              "description": "The unique hex ID of the Todo document to delete."
+            }
+          ]
+        },
+        "description": "Removes a Todo item from the database by ID."
+      },
+      "response": []
+    }
+  ]
+}
